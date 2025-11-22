@@ -1,0 +1,38 @@
+
+:root {
+    --primary-bg-color: #3b597b;
+    --secondary-bg-color: #6a88ab;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --button-primary: #3498db;
+    --button-primary-hover: #2980b9;
+    --light-grey-text: #cccccc;
+}
+
+
+html,body {
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+h1, h2, h3, p {
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+app-root { 
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 1; 
+}

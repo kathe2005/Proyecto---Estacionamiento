@@ -1,0 +1,157 @@
+<div class="register-container">
+    <form [formGroup]="registerForm">
+        <h2>Registro de Usuario UCAB</h2>
+
+        @if (errorMessaje) 
+        {
+            <div class="message error-message">{{ errorMessaje }}</div>
+        }
+    
+        @if (successMessage && currentStep === 4) 
+        {
+            <div class="message success-message">{{ successMessage }}</div>
+        }
+
+        @if (currentStep === 1) 
+        {
+            <section class="step-section">
+                <h3>1. Credenciales de Acceso</h3>
+
+                <div class="form-group">
+                    <label for="usuario">Ingrese su usuario</label>
+                    <input id="usuario" type="text" formControlName="usuario" placeholder="katheb01">
+                    @if (registerForm.get('usuario')?.invalid && registerForm.get('usuario')?.touched) 
+                    {
+                        <p class="error-text">El usuario es obligatorio.</p>
+                    }
+                </div>
+        
+                <div class="form-group">
+                    <label for="email">Ingrese su correo</label>
+                    <input id="email" type="email" formControlName="email" placeholder="Puede ingresar @ucab.edu.ve, @est.ucab.edu.ve, @gmail.com, @yahoo.com, @hotmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="contrasena">Ingrese su contraseña</label>
+                    <input id="contrasena" type="password" formControlName="contrasena" placeholder="Debe ingresar una mayuscula, una minuscula y un numero, tiene que tener 8 digitos">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmarContrasena">Ingrese nuevamente su Contraseña</label>
+                    <input id="confirmarContrasena" type="password" formControlName="confirmarContrasena" placeholder="Debe ingresar una mayuscula, una minuscula y un numero, tiene que tener 8 digitos">
+                    @if (registerForm.errors?.['mismatch'] && registerForm.get('confirmarContrasena')?.touched) 
+                    {
+                        <p class="error-text">Las contraseñas no coinciden.</p>
+                    }
+                </div>
+
+                <button type="button" class="btn-next" (click)="goToNextStep()">Siguiente</button>
+            </section>
+        }
+
+
+        @if (currentStep === 2) 
+        {
+            <section class="step-section">
+                <h3>2. Datos Personales</h3>
+
+                <div class="form-group">
+                    <label for="cedula">Ingrese su Cédula</label>
+                    <input id="cedula" type="text" formControlName="cedula" placeholder="Tiene que ser de formato [V,E,J]-12345678">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombre">Ingrese su Nombre</label>
+                        <input id="nombre" type="text" formControlName="nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apellido">Ingrese su Apellido</label>
+                        <input id="apellido" type="text" formControlName="apellido">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipodePersona">Seleccione el Tipo de Persona</label>
+                    <select id="tipodePersona" formControlName="tipodePersona">
+                        <option value="" disabled>-- Seleccionar --</option>
+                        <option value="UCAB">UCAB</option>
+                        <option value="VISITANTE">VISITANTE</option>
+                    </select>
+    
+                    @if (registerForm.get('tipodePersona')?.invalid && registerForm.get('tipodePersona')?.touched) 
+                    {
+                        <p class="error-text"> El tipo de persona es obligatorio </p>
+                    }
+                </div>
+
+                <button type="button" class="btn-prev" (click)="goToPreviousStep()">Anterior</button>
+                <button type="button" class="btn-next" (click)="goToNextStep()">Siguiente</button>
+            </section>
+        }
+
+
+        @if (currentStep === 3) 
+        {
+            <section class="step-section">
+                <h3>3. Datos de Contacto y Confirmación</h3>
+
+                <div class="form-group">
+                    <label for="telefono"> Ingrese su Teléfono</label>
+                    <input id="telefono" type="tel" formControlName="telefono" placeholder="(0212,0416,0426,0414,0424)-123456">
+                </div>
+        
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <textarea id="direccion" formControlName="direccion"></textarea>
+                </div>
+
+                <button type="button" class="btn-prev" (click)="goToPreviousStep()">Anterior</button>
+                <button type="submit" class="btn-submit" (click)="goToNextStep()">Registrar</button>
+            </section>
+        }
+    
+        @if (currentStep === 4) 
+        {
+            <section class="step-section summary-section">
+                <h3>4. Revisión Final de Datos</h3>
+                <p class="summary-intro">Verifica que todos los datos sean correctos antes de enviar tu registro a la UCAB.</p>
+        
+                <div class="summary-details">
+                    <h4>Credenciales de Acceso</h4>
+                        <p><strong>Usuario:</strong> {{ registerForm.get('usuario')?.value }}</p>
+                        <p><strong>Email:</strong> {{ registerForm.get('email')?.value }}</p>
+                        <p><strong>Teléfono:</strong> {{ registerForm.get('telefono')?.value }}</p>
+            
+                    <h4>Datos Personales</h4>
+                        <p><strong>Cédula:</strong> {{ registerForm.get('cedula')?.value }}</p>
+                        <p><strong>Nombre y Apellido:</strong> {{ registerForm.get('nombre')?.value }} {{ registerForm.get('apellido')?.value }}</p>
+                        <p><strong>Rol:</strong> {{ registerForm.get('tipodePersona')?.value }}</p>
+                
+                    <h4>Contacto y Ubicación</h4>
+                        <p><strong>Telefono: </strong> {{ registerForm.get('telefono')?.value }}</p>
+                        <p><strong>Dirección:</strong> {{ registerForm.get('direccion')?.value }}</p>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-prev" (click)="goToPreviousStep()">Modificar Datos</button>
+                    <button type="submit" class="btn-submit" (click)="onSubmit()">CONFIRMAR Y REGISTRAR</button>
+                </div>
+            </section>
+
+        }
+
+        @if (currentStep === 5) 
+        {
+
+            <section class="step-section success-section">
+                <h3>¡Registro Exitoso!</h3>
+                <p>Cliente registrado y listo para acceder al estacionamiento.</p>
+                <button type="button" class="btn-back" (click)="currentStep = 1; registerForm.reset()">Volver a Inicio</button>
+            </section>
+        }
+
+
+    </form>
+</div>
