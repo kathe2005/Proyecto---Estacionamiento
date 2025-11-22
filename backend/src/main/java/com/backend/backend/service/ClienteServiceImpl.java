@@ -19,13 +19,41 @@ public class ClienteServiceImpl implements ClienteService{
     @Override
     public void verificacionUnica(Cliente cliente) {
 
-        //Se intenta buscar si ya existe alguien con ese usuario
+        //Se intenta buscar si ya existe alguien
+        //Usuario
         Cliente existente = clienteRepository.findByUsuario(cliente.getUsuario());
+
+        //Email
+        Cliente existente2 = clienteRepository.findByEmail(cliente.getEmail());
+
+        //Cedula
+        Cliente existente3 = clienteRepository.findByCedula(cliente.getCedula());
+
+        //Telefono
+        Cliente existente4 = clienteRepository.findByTelefono(cliente.getTelefono());
 
         if(existente != null)
         {
             //Si no es nulo, ¡el cliente ya existe! Detenemos el proceso
-            throw new RuntimeException("El nombre de usuario " + cliente.getUsuario() + " ya esta registrado");
+            throw new RuntimeException("El nombre de usuario " + cliente.getUsuario() + " ya esta registrado. Ingrese otro");
+        }
+
+        if(existente2 != null)
+        {
+            //Si no es nulo, ¡el cliente ya existe! Detenemos el proceso
+            throw new RuntimeException("El correo " + cliente.getEmail() + " ya esta registrado. Ingrese otro");
+        }
+
+        if(existente3 != null)
+        {
+            //Si no es nulo, ¡el cliente ya existe! Detenemos el proceso
+            throw new RuntimeException("La cedula " + cliente.getCedula() + " ya esta registrado. Ingrese otro");
+        }
+
+        if(existente4 != null)
+        {
+            //Si no es nulo, ¡el cliente ya existe! Detenemos el proceso
+            throw new RuntimeException("El telefono " + cliente.getTelefono() + " ya esta registrado. Ingrese otro");
         }
 
         //Si es null, el proceso continua (no hace nada y es void)

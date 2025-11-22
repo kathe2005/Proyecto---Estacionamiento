@@ -4,12 +4,14 @@ import com.backend.backend.model.Cliente;
 import com.backend.backend.service.ClienteService;
 import com.backend.backend.service.ClienteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController //Indica que es un Controller REST
 @RequestMapping("/api/clientes") //URL base: localhost:8080/api/clientes
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClienteController {
 
     ////Relación con los metodos (Service)

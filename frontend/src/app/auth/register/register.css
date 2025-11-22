@@ -1,0 +1,223 @@
+/* --- Estilo Base y Contenedor Principal --- */
+
+.register-container {
+    max-width: 1000px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 390px;
+    background-color: white; 
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 51, 102, 0.15); 
+    font-family: 'Open Sans', sans-serif; 
+    padding: 40px;
+}
+
+form {
+    padding: 0;
+}
+
+h2 {
+    color: #003366;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* --- Stepper (Indicador de Pasos) --- */
+
+.stepper-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 35px 0;
+    padding: 0 10px;
+    color: #666;
+}
+
+.stepper-indicator .step-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.stepper-indicator .step-dot.active {
+    background-color: #003366;
+    box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.3);
+}
+
+.stepper-indicator .step-dot.completed {
+    background-color: #3CB371;
+}
+
+.stepper-indicator .step-line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 10px;
+}
+
+
+/* --- Sección de Pasos (Card Style) --- */
+
+.step-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #003366; /* Línea de acento UCAB */
+}
+
+.step-section h3 {
+    color: #005090;
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+/* --- Estilos de Formularios --- */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #003366;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a0a0a0;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+input:focus, textarea:focus {
+    border-color: #005090;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.1);
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* --- Botones --- */
+
+.button-group-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btn-prev, .btn-next, .btn-submit, .btn-back {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+/* Botón de Anterior */
+.btn-prev {
+    background-color: #f0f0f0;
+    color: #555;
+}
+.btn-prev:hover {
+    background-color: #e0e0e0;
+}
+
+/* Botones Principales (Siguiente, Registrar) */
+.btn-next, .btn-submit, .btn-back {
+    background-color: #fae903; 
+    color: rgb(0, 0, 0);
+    box-shadow: 0 4px 8px rgba(60, 179, 113, 0.3);
+}
+
+.btn-next:hover, .btn-submit:hover, .btn-back:hover {
+    background-color: #32a265; 
+    box-shadow: 0 6px 12px rgba(60, 179, 113, 0.4);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    color: white;
+}
+
+/* Botón de volver a inicio (en éxito) */
+.btn-back {
+    margin: 0 auto; 
+    display: block;
+}
+
+
+
+/* Mensajes de Error/Éxito */
+.error-text {
+    color: #CC0000;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.message {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.error-message {
+    background-color: #ffeded;
+    color: #CC0000;
+    border-left: 5px solid #CC0000;
+}
+
+.success-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.success-section h3 {
+    color: #3CB371;
+}
+
+/*---- Selector ----*/
+select{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+}

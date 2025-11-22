@@ -40,5 +40,47 @@ public class ClienteRepository {
         return null; //No se encontró el cliente
     }
 
+    /* Busca un cliente por su email
+     * Cliente si se encuentra, o null si no existe */
+    public Cliente findByEmail(String email)
+    {
+        for (Cliente c: clientes)
+        {
+            if(c.getUsuario().equals(email))
+            {
+                return c; //Esta en la base de datos
+            }
+        }
+        return null; //No se encontró el cliente
+    }
+
+    /* Busca un cliente por su cedula
+     * Cliente si se encuentra, o null si no existe */
+    public Cliente findByCedula(String cedula)
+    {
+        for (Cliente c: clientes)
+        {
+            if(c.getUsuario().equals(cedula))
+            {
+                return c; //Esta en la base de datos
+            }
+        }
+        return null; //No se encontró el cliente
+    }
+
+    /* Busca un cliente por su cedula
+     * Cliente si se encuentra, o null si no existe */
+    public Cliente findByTelefono(String telefono)
+    {
+        for (Cliente c: clientes)
+        {
+            if(c.getUsuario().equals(telefono))
+            {
+                return c; //Esta en la base de datos
+            }
+        }
+        return null; //No se encontró el cliente
+    }
+
 
 }
