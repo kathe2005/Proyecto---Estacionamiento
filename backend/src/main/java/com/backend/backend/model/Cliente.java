@@ -21,6 +21,11 @@ public class Cliente {
     private String telefono;
     private String direccion;
 
+
+    // Constructor Vacío (sigue siendo útil para la serialización JSON)
+    public Cliente() {
+    }
+
     //---- Constructor -----
     //Para inicializar los objetos
     public Cliente(Long id, String usuario, String email, String contrasena, String confirmarContrasena, String cedula, String nombre, String apellido, String tipodePersona, String telefono, String direccion) {
