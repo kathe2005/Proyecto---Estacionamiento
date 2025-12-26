@@ -1,0 +1,48 @@
+<header class="main-header" [class.register-view]="isRegisterRoute">
+
+    <div class="system-logo">
+
+        <img src="images/logo-estacionamiento.png" class="logo-icon">
+        <h1 class=" system-name-text"> Sistema De Estacionamiento </h1>
+
+    </div>
+    
+    <nav class="top-nav">
+
+        <button class="nav-button" [routerLink]="['/']"> Home </button>
+
+        <div class="datetime">
+            <span> {{ currentDate | date: 'fullDate'}} </span> |
+            <span> {{ currentTime | date: 'mediumTime'}}</span>
+        </div>
+
+        @if (!isRegisterRoute) 
+        {
+            <button [routerLink]= "['/registro']" class=" register-client-button">
+                Registrar Cliente 
+            </button>
+        }
+
+    </nav>
+
+
+</header>
+
+<main class="main-content">
+
+    <router-outlet></router-outlet>
+    
+</main>
+
+<footer class="main-footer">
+
+    <div class="footer-content">
+
+        <span class="contact-info"> Contacto +58-4169310940 </span>
+        <span class="company-info"> @EstacionamientoUCAB @estacionamiento.com </span>
+
+    </div>
+
+</footer>
+
+
